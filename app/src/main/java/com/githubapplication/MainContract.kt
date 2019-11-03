@@ -1,8 +1,10 @@
 package com.githubapplication
 
+import com.TrendingRepositories
+
 interface MainContract {
 
-    interface MainView {
+    interface MainPresenter {
 
         fun requestDataFromServer(language: String)
 
@@ -10,13 +12,13 @@ interface MainContract {
 
     }
 
-    interface MainPresenter {
+    interface MainView {
 
         fun showProgress()
 
         fun hideProgress()
 
-        fun setData()
+        fun setData(trendingRepositories: ArrayList<TrendingRepositories>)
 
         fun onFailure()
 
@@ -24,15 +26,11 @@ interface MainContract {
 
     interface MainInteractor {
 
-        fun getDataFromServer(onFinishedListener: OnFinishedListener, language: String)
-
-        fun getTrendingRepositories(
-            onFinishedListener: OnFinishedListener
-        )
+        fun getTrendingRepositories(onFinishedListener: OnFinishedListener, language: String)
 
         interface OnFinishedListener {
 
-            fun onSuccess()
+            fun onSuccess(trendingRepositories: ArrayList<TrendingRepositories>)
 
             fun onFailure()
 
