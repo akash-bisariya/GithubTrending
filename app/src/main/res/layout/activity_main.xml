@@ -6,13 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spn_padding"
+        android:id="@+id/spn_language"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/spn_margin">
+    </Spinner>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/txt_weekly"
+        android:padding="@dimen/spn_margin"
+        android:layout_margin="@dimen/spn_margin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tv_since"
+        app:layout_constraintTop_toBottomOf="@id/spn_language" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_get_trending_repositories"
+        android:textAllCaps="false"
+        android:padding="@dimen/spn_margin"
+        android:id="@+id/btn_getTrending"
+        android:layout_margin="@dimen/spn_margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_since" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:padding="@dimen/spn_margin"
+        android:layout_margin="@dimen/spn_margin"
+        app:layout_constraintTop_toBottomOf="@id/btn_getTrending"
+        />
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
