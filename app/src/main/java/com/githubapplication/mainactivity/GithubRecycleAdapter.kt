@@ -10,7 +10,7 @@ import com.githubapplication.R
 import kotlinx.android.synthetic.main.row_layout.view.*
 
 
-class GithubRecycleAdapter(private val mRepositoryList: ArrayList<TrendingRepositories> ) : RecyclerView.Adapter<GithubRecycleAdapter.ViewHolder>() {
+class GithubRecycleAdapter(val mainView: MainContract.MainView, private val mRepositoryList: ArrayList<TrendingRepositories> ) : RecyclerView.Adapter<GithubRecycleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_layout, parent, false)
         return ViewHolder(view)
@@ -30,13 +30,21 @@ class GithubRecycleAdapter(private val mRepositoryList: ArrayList<TrendingReposi
         holder.tvName.text = "Name: ${mRepositoryList.get(position).name}"
 
 
+
         Glide.with(holder.ivRepoImage.context).load(mRepositoryList[position].avatar)
             .asBitmap()
             .placeholder(R.mipmap.ic_launcher)
             .centerCrop()
             .into(holder.ivRepoImage)
 
+
+        holder.layout_row.setOnClickListener {
+            mainView.onRepositoryItemClick(mRepositoryList[position].repo.url)
+        }
+
         Log.e("visitor",""+position+" : "+mRepositoryList.get(position).repo)
+
+
 
 
 
@@ -50,6 +58,7 @@ class GithubRecycleAdapter(private val mRepositoryList: ArrayList<TrendingReposi
         var tvUserName = itemView!!.tv_user_name
         var tvRepoDesc = itemView!!.tv_repo_desc
         var tvRepoUrl = itemView!!.tv_repo_url
+        var layout_row = itemView!!.row_repository
 
 
     }

@@ -4,4 +4,5 @@
     <dimen name="spn_padding">10dp</dimen>
     <dimen name="image_padding">10dp</dimen>
     <dimen name="size_repo_image">100dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

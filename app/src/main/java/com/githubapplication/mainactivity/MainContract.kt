@@ -20,6 +20,8 @@ interface MainContract {
 
         fun onFailure()
 
+        fun onRepositoryItemClick(url: String)
+
     }
 
     interface MainInteractor {

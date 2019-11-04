@@ -5,7 +5,8 @@
     <string name="txt_no_network">You are not connected to Internet!!</string>
 
     <string-array name="language_array">
-            <item>java</item>
-            <item>kotlin</item>
+        <item>java</item>
+        <item>kotlin</item>
     </string-array>
+    <string name="title_activity_repository_detail">RepositoryDetailActivity</string>
 </resources>
