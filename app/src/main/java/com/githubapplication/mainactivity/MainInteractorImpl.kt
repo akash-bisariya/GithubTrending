@@ -1,8 +1,7 @@
-package com.githubapplication
+package com.githubapplication.mainactivity
 
 import android.content.Context
 import android.util.Log
-import com.TrendingRepositories
 import com.githubapplication.utils.CommonUtil
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -12,7 +11,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainInteractorImpl(val context: Context) : MainContract.MainInteractor {
+class MainInteractorImpl(val context: Context) :
+    MainContract.MainInteractor {
     private val BASE_URL = "https://github-trending-api.now.sh/"
     val cacheSize = (5 * 1024 * 1024).toLong()
     val myCache = Cache(context.cacheDir, cacheSize)
@@ -38,7 +38,7 @@ class MainInteractorImpl(val context: Context) : MainContract.MainInteractor {
             .client(okHttpClient)
             .build()
 
-        val getGithubService:GithubService = retrofit.create(GithubService::class.java)
+        val getGithubService: GithubService = retrofit.create(GithubService::class.java)
 
         val call: Call<ArrayList<TrendingRepositories>> = getGithubService.getGithubData(language,"weekly")
 
