@@ -1,6 +1,4 @@
-package com.githubapplication
-
-import com.TrendingRepositories
+package com.githubapplication.mainactivity
 
 interface MainContract {
 

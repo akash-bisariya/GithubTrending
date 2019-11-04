@@ -1,14 +1,15 @@
-package com.githubapplication
+package com.githubapplication.mainactivity
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.TrendingRepositories
+import com.githubapplication.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, MainContract.MainView {
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+    MainContract.MainView {
 
     private lateinit var presenter: MainPresenterImpl
 
@@ -17,7 +18,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, MainContract.Mai
         setContentView(R.layout.activity_main)
 
 
-        presenter = MainPresenterImpl(this, MainInteractorImpl(this))
+        presenter = MainPresenterImpl(
+            this,
+            MainInteractorImpl(this)
+        )
 
         spn_language.adapter = ArrayAdapter.createFromResource(
             this,
@@ -58,7 +62,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, MainContract.Mai
 
     override fun setData(trendingRepositories: ArrayList<TrendingRepositories>) {
         pb_progress.visibility = View.GONE
-        rv_repositories.adapter = GithubRecycleAdapter(trendingRepositories)
+        rv_repositories.adapter =
+            GithubRecycleAdapter(trendingRepositories)
         btn_getTrending.isEnabled = true
 
     }

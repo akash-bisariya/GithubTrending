@@ -1,4 +1,4 @@
-package com
+package com.githubapplication.mainactivity
 
 data class TrendingRepositories(
     val username: String,
