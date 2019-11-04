@@ -1,12 +1,12 @@
-package com.githubapplication
+package com.githubapplication.mainactivity
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.TrendingRepositories
 import com.bumptech.glide.Glide
+import com.githubapplication.R
 import kotlinx.android.synthetic.main.row_layout.view.*
 
 
@@ -30,8 +30,7 @@ class GithubRecycleAdapter(private val mRepositoryList: ArrayList<TrendingReposi
         holder.tvName.text = "Name: ${mRepositoryList.get(position).name}"
 
 
-
-        val bitmap =  Glide.with(holder.ivRepoImage.context).load(mRepositoryList[position].avatar)
+        Glide.with(holder.ivRepoImage.context).load(mRepositoryList[position].avatar)
             .asBitmap()
             .placeholder(R.mipmap.ic_launcher)
             .centerCrop()
