@@ -2,7 +2,7 @@ package com.githubapplication
 
 import com.TrendingRepositories
 
-class MainPresenterImpl(private var mainView: MainContract.MainView?, private val mainInteractor: MainContract.MainInteractor) : MainContract.MainPresenter, MainContract.MainInteractor.OnFinishedListener {
+class MainPresenterImpl(var mainView: MainContract.MainView?, private val mainInteractor: MainContract.MainInteractor) : MainContract.MainPresenter, MainContract.MainInteractor.OnFinishedListener {
 
 
     override fun requestDataFromServer(language: String) {
@@ -24,9 +24,7 @@ class MainPresenterImpl(private var mainView: MainContract.MainView?, private va
     }
 
     override fun onFailure() {
-
         mainView?.hideProgress()
-
     }
 
 
